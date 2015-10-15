@@ -54,7 +54,7 @@ CJob * CSchedualTask::GetJob(JID_T tJid)
 
 	for(; it != m_vecJobList.end(); it ++)
 	{
-		if( (* it)->GetJid() == tJid)
+		if( (* it)->GetSelfJid() == tJid)
 		{
 			return (* it);
 		}

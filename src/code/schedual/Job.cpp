@@ -17,8 +17,13 @@ bool CJob::PowerDown()
 }
 
 
-JID_T CJob::GetJid()
+JID_T CJob::GetSelfJid()
 {
 	return m_tJid;
+}
+
+
+void CJob::SendAsyncMsg(BYTE * pbMsg, WORD16 wMsgLen, JID_T tDestJid)
+{
 }
 

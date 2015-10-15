@@ -7,6 +7,7 @@ namespace XPLAT
 {
 
 
+typedef unsigned char    BYTE;
 typedef unsigned short      WORD16;
 typedef signed short        SWORD16;
 typedef unsigned int        WORD32;

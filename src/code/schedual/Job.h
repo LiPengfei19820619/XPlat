@@ -18,7 +18,10 @@ public:
 
 	virtual void  OnMsg(WORD32 dwEvent, void * pvMsg, WORD16 wMsgLen) = 0;
 
-	JID_T    GetJid();
+	JID_T    GetSelfJid();
+
+protected:
+	void  SendAsyncMsg(BYTE * pbMsg, WORD16 wMsgLen, JID_T tDestJid);
 
 private:
 	JID_T    m_tJid;
