@@ -2,6 +2,7 @@
 #define   XPLAT_MESSAGE_QUEUE_H
 
 
+#include <queue>
 #include "MessageBlock.h"
 
 
@@ -19,8 +20,11 @@ public:
 	unsigned int  GetLength() const;
 
 	CMessageBlock * GetMessage();
+	bool AddMessage(CMessageBlock * ptMsg);
 
 private:
+	typedef std::queue<CMessageBlock *> QUEUE_T;
+	QUEUE_T        m_queue;
 	unsigned int   m_uiLength;
 };
 

@@ -27,6 +27,7 @@ file(GLOB_RECURSE SRC_FILES
 )
 
 include_directories(${_BASE_PATH_}/src/include)
+include_directories(${_BASE_PATH_}/src/code/ipc)
 include_directories(${_BASE_PATH_}/src/code/net/socket)
 
 
