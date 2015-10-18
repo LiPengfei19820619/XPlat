@@ -5,7 +5,7 @@
 using namespace XPLAT;
 
 
-CMessageBlock::CMessageBlock()
+CMessageBlock::CMessageBlock(const char * data, size_t length)
 {
 }
 
@@ -27,6 +27,12 @@ WORD32 CMessageBlock::GetMsgId()
 }
 
 
+void CMessageBlock::SetMsgId(WORD32 dwMsgId)
+{
+	m_dwMsgId = dwMsgId;
+}
+
+
 JID_T CMessageBlock::GetSender()
 {
 	return this->m_tSrcJid;
@@ -39,4 +45,29 @@ JID_T CMessageBlock::GetReceiver()
 }
 
 
+void CMessageBlock::SetReceiver(JID_T tDstJid)
+{
+	m_tDstJid = tDstJid;
+}
+
+
+bool CMessageBlock::Init(const char * data, size_t length)
+{
+	this->m_ptDataBlock = new CDataBlock();
+	m_ptDataBlock->SetData(data, length);
+
+	return true;
+}
+
+
+void CMessageBlock::Free()
+{
+	if(m_ptDataBlock != NULL)
+	{
+		delete m_ptDataBlock;
+		m_ptDataBlock = NULL;
+	}
+
+	return;
+}
 

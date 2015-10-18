@@ -18,7 +18,7 @@ public:
 	virtual ~CDataBlock();
 
 	char * GetData() const;
-	void SetData(char * data, size_t size);
+	bool SetData(const char * data, size_t size);
 
 	size_t GetSize() const;
 	void SetSize(size_t size);

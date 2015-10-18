@@ -44,8 +44,24 @@ char * CDataBlock::GetData() const
 }
 
 
-void CDataBlock::SetData(char * data, size_t size)
+bool CDataBlock::SetData(const char * data, size_t size)
 {
+	if(data == NULL || size == 0)
+	{
+		return false;
+	}
+
+	m_pchData = (char *)malloc(size);
+	if(m_pchData == NULL)
+	{
+		return false;
+	}
+
+	memcpy(m_pchData, data, size);
+	m_uiCurSize = size;
+	m_uiMaxSize = size;
+
+	return true;
 }
 
 

@@ -13,14 +13,23 @@ namespace XPLAT
 class CMessageBlock
 {
 public:
-	CMessageBlock(void);
+	CMessageBlock(const char * data, size_t length);
 
 	virtual ~CMessageBlock();
 
     CDataBlock  * GetDataBlock();
+
     WORD32        GetMsgId();
+	void          SetMsgId(WORD32 dwMsgId);
+
 	JID_T         GetSender();
+	
 	JID_T         GetReceiver();
+	void          SetReceiver(JID_T tDstJid);
+
+protected:
+	bool          Init(const char * data, size_t length);
+	void          Free();
 
 private:
 	JID_T         m_tSrcJid;
