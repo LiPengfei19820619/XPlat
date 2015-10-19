@@ -23,6 +23,7 @@ public:
 	void          SetMsgId(WORD32 dwMsgId);
 
 	JID_T         GetSender();
+	void          SetSender(JID_T tSrcJid);
 	
 	JID_T         GetReceiver();
 	void          SetReceiver(JID_T tDstJid);

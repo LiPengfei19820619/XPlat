@@ -39,6 +39,12 @@ JID_T CMessageBlock::GetSender()
 }
 
 
+void CMessageBlock::SetSender(JID_T tSrcJid)
+{
+	m_tSrcJid = tSrcJid;
+}
+
+
 JID_T CMessageBlock::GetReceiver()
 {
 	return this->m_tDstJid;

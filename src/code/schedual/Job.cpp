@@ -27,5 +27,7 @@ JID_T CJob::GetSelfJid()
 void CJob::SendAsyncMsg(BYTE * pbMsg, WORD16 wMsgLen, JID_T tDestJid)
 {
 	CMessageBlock * ptMsg = new CMessageBlock((const char *)pbMsg, wMsgLen);
+	ptMsg->SetSender(this->GetSelfJid());
+	ptMsg->SetReceiver(tDestJid);
 }
 
