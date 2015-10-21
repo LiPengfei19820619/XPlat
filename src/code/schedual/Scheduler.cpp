@@ -1,4 +1,6 @@
 #include "XPlat_Schedual.h"
+#include "Scheduler.h"
+
 
 using namespace XPLAT;
 
@@ -20,6 +22,12 @@ CScheduler * CScheduler::GetInstance()
 bool CScheduler::Init(JOB_REG_ITEM_T atJobItems[], WORD16 wItemNum)
 {
 	return true;
+}
+
+
+CSchedualTask * CScheduler::GetSchedualTaskByJobType(WORD16 wJobType)
+{
+	return NULL;
 }
 
 

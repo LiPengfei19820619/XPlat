@@ -23,6 +23,8 @@ public:
 	bool  AddJob(CJob * ptJob);
 	CJob * GetJob(JID_T tJid);
 
+	bool AddMessage(CMessageBlock * ptMsg);
+
 private:
 	unsigned int m_uiIndex;
 

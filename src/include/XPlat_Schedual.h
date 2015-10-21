@@ -33,20 +33,6 @@ typedef struct tabJobRegItem
 }JOB_REG_ITEM_T;
 
 
-class CScheduler
-{
-public:
-	static CScheduler * GetInstance();
-
-	bool Init(JOB_REG_ITEM_T atJobItems[], WORD16 wItemNum);
-
-private:
-	CScheduler();
-
-	static CScheduler  * m_pInstance;
-};
-
-
 }   /* namespace XPLAT */
 
 

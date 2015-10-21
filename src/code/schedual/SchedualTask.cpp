@@ -63,6 +63,12 @@ CJob * CSchedualTask::GetJob(JID_T tJid)
 }
 
 
+bool CSchedualTask::AddMessage(CMessageBlock * ptMsg)
+{
+	return true;
+}
+
+
 unsigned int CSchedualTask::SchedualEntry(void * pvParam)
 {
 	CSchedualTask * ptSchedualTask = (CSchedualTask *)pvParam;
