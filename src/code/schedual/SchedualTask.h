@@ -24,6 +24,7 @@ public:
 	CJob * GetJob(JID_T tJid);
 
 	bool AddMessage(CMessageBlock * ptMsg);
+	CMessageBlock * GetMessage();
 
 private:
 	unsigned int m_uiIndex;

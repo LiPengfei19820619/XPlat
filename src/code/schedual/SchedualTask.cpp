@@ -69,6 +69,12 @@ bool CSchedualTask::AddMessage(CMessageBlock * ptMsg)
 }
 
 
+CMessageBlock * CSchedualTask::GetMessage()
+{
+	return m_msgQueue.GetMessage();
+}
+
+
 unsigned int CSchedualTask::SchedualEntry(void * pvParam)
 {
 	CSchedualTask * ptSchedualTask = (CSchedualTask *)pvParam;
@@ -80,7 +86,7 @@ unsigned int CSchedualTask::SchedualEntry(void * pvParam)
 
 	CMessageBlock * ptMsg = NULL;
 
-	while( (ptMsg = ptSchedualTask->m_msgQueue.GetMessage()) != NULL )
+	while( (ptMsg = ptSchedualTask->GetMessage()) != NULL )
 	{
 		JID_T  tJid = ptMsg->GetReceiver();
 		CJob * ptJob = ptSchedualTask->GetJob(tJid);
@@ -90,6 +96,8 @@ unsigned int CSchedualTask::SchedualEntry(void * pvParam)
 
 			ptJob->OnMsg(ptMsg->GetMsgId(), ptDataBlock->GetData(), ptDataBlock->GetSize());
 		}
+
+		delete ptMsg;
 	}
 
 	return 0;
