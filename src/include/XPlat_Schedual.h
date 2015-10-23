@@ -3,6 +3,7 @@
 
 
 #include <string>
+#include <vector>
 #include "os_types.h"
 
 
@@ -46,10 +47,16 @@ typedef struct tabJobRegItem
 	WORD16          wJobType;
 	WORD16          wInstance;
 	WORD16          wScheIndex;
-	std::string     strName;
-	JOB_ENTRY_FUNC  pfEntry;
+	
 	CJob          * ptJob;
 }JOB_REG_ITEM_T;
+
+
+class CScheduleManager
+{
+public:
+	static bool Init(JOB_REG_ITEM_T atJobRegItems[], WORD16 wJobNum);
+};
 
 
 }   /* namespace XPLAT */
