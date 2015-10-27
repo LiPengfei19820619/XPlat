@@ -27,6 +27,9 @@ public:
 class CJob
 {
 public:
+	CJob(std::string strName = "XPlat_Job");
+	virtual ~CJob();
+
 	virtual bool  PowerOn();
 	virtual bool  PowerDown();
 
@@ -36,6 +39,8 @@ public:
 
 protected:
 	void  SendAsyncMsg(BYTE * pbMsg, WORD16 wMsgLen, JID_T tDestJid);
+
+	std::string  m_strName;
 
 private:
 	JID_T    m_tJid;

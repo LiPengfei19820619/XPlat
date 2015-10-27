@@ -25,6 +25,11 @@ CSchedualTask::~CSchedualTask()
 
 bool CSchedualTask::Start()
 {
+	for(JOB_LIST_T::iterator it = m_vecJobList.begin(); it != m_vecJobList.end(); it ++)
+	{
+		(* it)->PowerOn();
+	}
+
 	m_ptThread = IThread::Create(SchedualEntry, this);
 	if(m_ptThread == NULL)
 	{

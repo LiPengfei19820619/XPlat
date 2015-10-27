@@ -15,5 +15,7 @@ int main(int argc, char *argv[])
 
 	CScheduleManager::Init(g_atJobRegItems, g_wJobNum);
 
+	getchar();
+
 	return 0;
 }

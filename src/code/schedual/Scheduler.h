@@ -16,6 +16,7 @@ public:
 	static CScheduler * GetInstance();
 
 	bool Init(JOB_REG_ITEM_T atJobItems[], WORD16 wItemNum);
+	bool Start();
 
 	CSchedualTask * GetSchedualTaskByJobType(WORD16 wJobType);
 

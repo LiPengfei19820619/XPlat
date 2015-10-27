@@ -1,4 +1,5 @@
 
+#include <iostream>
 #include "MessageBlock.h"
 #include "Scheduler.h"
 #include "SchedualTask.h"
@@ -8,8 +9,20 @@
 using namespace XPLAT;
 
 
+CJob::CJob(std::string strName)
+{
+	m_strName = strName;
+}
+
+
+CJob::~CJob()
+{
+}
+
+
 bool CJob::PowerOn()
 {
+	std::cout<<"Job PowerOn: "<<m_strName<<" Success!"<<std::endl;
 	return true;
 }
 
