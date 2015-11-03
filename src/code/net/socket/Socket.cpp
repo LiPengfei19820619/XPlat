@@ -6,6 +6,23 @@
 using namespace XPLAT;
 
 
+bool CNetManager::Init()
+{
+	return true;
+}
+
+
+ISocketReactor * CNetManager::GetReactor()
+{
+	if(m_ptReactor == NULL)
+	{
+		m_ptReactor = ISocketReactor::Create();
+	}
+
+	return m_ptReactor;
+}
+
+
 ISocket * ISocket::Create(SOCKET_TYPE_EN type)
 {
 	if(type == ISocket::SOCKET_TYPE_DATAGRAM)

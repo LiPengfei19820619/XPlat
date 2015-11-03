@@ -54,3 +54,33 @@ void CJob::SendAsyncMsg(BYTE * pbMsg, WORD16 wMsgLen, JID_T tDestJid)
 	return;
 }
 
+
+void CJob::OnReadable()
+{
+	return;
+}
+
+
+void CJob::OnWritable()
+{
+	return;
+}
+
+
+void CJob::OnConnected()
+{
+	return;
+}
+
+
+void CJob::OnAccepted(ISocket * ptSocket, ISocketAddress * ptAddress)
+{
+	return;
+}
+
+
+void CJob::OnError()
+{
+	return;
+}
+

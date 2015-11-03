@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include "os_types.h"
+#include "XPlat_Socket.h"
 
 
 namespace XPLAT
@@ -24,7 +25,7 @@ public:
 }JID_T;
 
 
-class CJob
+class CJob : public ISocketEventHandler
 {
 public:
 	CJob(std::string strName = "XPlat_Job");
@@ -36,6 +37,13 @@ public:
 	virtual void  OnMsg(WORD32 dwEvent, void * pvMsg, WORD16 wMsgLen) = 0;
 
 	JID_T    GetSelfJid();
+
+public:
+	void OnReadable();
+	void OnWritable();
+	void OnConnected();
+	void OnAccepted(ISocket * ptSocket, ISocketAddress * ptAddress);
+	void OnError();
 
 protected:
 	void  SendAsyncMsg(BYTE * pbMsg, WORD16 wMsgLen, JID_T tDestJid);

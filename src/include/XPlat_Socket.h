@@ -53,7 +53,7 @@ public:
 	virtual void OnError() = 0;
 
 protected:
-	virtual ISocketReactor  * GetReactor() = 0;
+	virtual ISocketReactor  * GetReactor(){return NULL;}
 };
 
 
@@ -68,6 +68,17 @@ public:
 	virtual void Stop() = 0;
 
 	virtual void AddEventHandler(ISocket *, ISocketEventHandler *) = 0;
+};
+
+
+class CNetManager
+{
+public:
+	static bool Init();
+	static ISocketReactor * GetReactor();
+
+private:
+	static ISocketReactor * m_ptReactor;
 };
 
 
