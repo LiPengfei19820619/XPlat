@@ -6,6 +6,7 @@
 #include <vector>
 #include "os_types.h"
 #include "XPlat_Socket.h"
+#include "XPlat_Timer.h"
 
 
 namespace XPLAT
@@ -25,7 +26,7 @@ public:
 }JID_T;
 
 
-class CJob : public ISocketEventHandler
+class CJob : public ISocketEventHandler, public ITimerEventHandler
 {
 public:
 	CJob(std::string strName = "XPlat_Job");
@@ -44,6 +45,9 @@ public:
 	void OnConnected();
 	void OnAccepted(ISocket * ptSocket, ISocketAddress * ptAddress);
 	void OnError();
+
+public:
+	void OnTimerOut();
 
 protected:
 	void  SendAsyncMsg(BYTE * pbMsg, WORD16 wMsgLen, JID_T tDestJid);

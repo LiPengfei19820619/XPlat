@@ -3,17 +3,21 @@
 
 
 #include "XPlat_Timer.h"
+#include "Timer.h"
 
 
 namespace  XPLAT
 {
 
 
-class CRelativeTimer : public ITimer
+class CRelativeTimer : public CTimer
 {
 public:
 	bool Set(WORD32 dwMilliSeconds);
 	bool Kill();
+
+private:
+	unsigned int m_uiTickCount;
 };
 
 

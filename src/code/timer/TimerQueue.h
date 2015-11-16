@@ -17,6 +17,8 @@ public:
 
 	bool  AddRelativeTimer(ITimer * ptTimer);
 
+	void  ScanRelTimerQueue();
+
 private:
 	CTimerQueue();
 	~CTimerQueue();
@@ -28,7 +30,19 @@ private:
 	typedef std::list<ITimer *> TIMER_TRIG_LIST;
 	typedef std::vector<TIMER_TRIG_LIST *> TIMER_SCAN_QUEUE;
 
-	TIMER_SCAN_QUEUE m_vecRelativeQueue[QUEUE_SCAN_LENGTH];
+	void InitScanQueue(TIMER_SCAN_QUEUE & timerScanQueue);
+	void FreeScanQueue(TIMER_SCAN_QUEUE & timerScanQueue);
+
+	void ScanQueue(TIMER_SCAN_QUEUE & timerScanQueue);
+
+	void TrigTimerList(TIMER_TRIG_LIST & timerList);
+
+	TIMER_SCAN_QUEUE m_vecShortRelativeQueue;
+	TIMER_SCAN_QUEUE m_vecLongRelativeQueue;
+
+	bool AddRelTimerToShortScanQueue(ITimer * ptTimer);
+
+	unsigned int m_uiCurShortScanPos;
 };
 
 

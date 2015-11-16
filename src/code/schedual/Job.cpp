@@ -84,3 +84,9 @@ void CJob::OnError()
 	return;
 }
 
+
+void CJob::OnTimerOut()
+{
+	return;
+}
+
